@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "Pokemon";
+  src: url(../fonts/PokemonGb.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pokemon";
+  list-style-type: circle;
+  --color1: #181010;
+  --color2: #84739c;
+  --color3: #f7b58c;
+  --color4: #ffefff;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/* Header */
+header {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color4);
+  color: var(--color3);
+}
+/* Main section */
+main {
+  width: 100%;
+  display: flex;
+  height: 80vh;
+}
+/* Instructions */
+#howToPlay {
+  width: 24%;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.instructions {
+  padding: 50px;
+  height: 50%;
+}
+.instructions ul li {
+  margin-bottom: 20px;
+}
+
+/* Game Screen */
+#gameArea {
+  width: 50%;
+  background-color: lightblue;
+}
+/* Battle area */
+.battleArea {
+  height: 70%;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myPokemon {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.enemyPokemon {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+.enemyPokemon .pokemonImg {
+  margin-left: 20%;
+}
+.myPokemon .pokemonImg {
+  margin-right: 20%;
+}
+.pokemonImg {
+  height: 150px;
+  background-color: blanchedalmond;
+  width: 150px;
+  border-radius: 50%;
+}
+.healthBar {
+  height: 20px;
+  width: 70%;
+  background-color: red;
+  margin: 10px 0;
+}
+/* Abilities */
+.abilities-container {
+  height: 30%;
+  background-color: cyan;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.ability {
+  background-color: antiquewhite;
+  width: 80%;
+  margin: 15px auto 15px;
+}
+
+/* Selection */
+#pokeSelection {
+  height: 100%;
+  width: 24%;
+  margin-left: 1%;
+}
+.pokemon-container {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.pokemon {
+  border: 1px solid black;
+  width: 50%;
+  height: 25%;
+  border-radius: 50%;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.pokemon p {
+  margin: 50% auto;
+}
+
+/* Footer */
+footer {
+  background-color: orange;
+  height: 5vh;
+}
+footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+footer ul li {
+  list-style-type: none;
+  font-size: 2rem;
+}

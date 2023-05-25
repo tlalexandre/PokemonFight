@@ -87,7 +87,7 @@ main {
   justify-content: center;
   align-items: center;
 }
-
+/* POKEMON DISPLAY */
 .pokemon {
   height: 100%;
   width: 100%;
@@ -119,6 +119,9 @@ main {
 #enemy .pokemonStats {
   border-left: 5px solid var(--color1);
   border-right: 0px;
+}
+.name {
+  text-transform: uppercase;
 }
 .healthBar {
   height: 20px;

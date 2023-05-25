@@ -89,30 +89,25 @@ main {
 }
 /* POKEMON DISPLAY */
 .pokemon {
-  height: 100%;
+  height: 50%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 #enemy {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   flex-direction: row-reverse;
 }
 
 .pokemonImg {
-  height: 100%;
+  height: 200px;
   background-color: blanchedalmond;
   width: 40%;
   border-radius: 50%;
 }
 
 .pokemonStats {
-  width: 50%;
+  width: 60%;
   border-right: 5px solid var(--color1);
   border-bottom: 5px solid var(--color1);
 }

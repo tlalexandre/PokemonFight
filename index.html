@@ -9,6 +9,7 @@
   </head>
   <body>
     <header>
+      <!-- <img src="./assets/images/PokemonLogo.webp" alt=""> -->
       <h1>Pokemon Battle Academy</h1>
     </header>
     <main>
@@ -26,22 +27,28 @@
       </section>
       <section id="gameArea">
         <div class="battleArea">
-          <div class="myPokemon">
+          <div class="pokemon" id="mine">
             <div class="pokemonImg">
               <img src="" alt="" />
             </div>
-            <div class="healthBar"></div>
-            <div class="level">
-              <p>Lvl <span>1</span></p>
+            <div class="pokemonStats">
+
+              <div class="healthBar"></div>
+              <div class="level">
+                <p>Lvl <span>1</span></p>
+            </div>
             </div>
           </div>
-          <div class="enemyPokemon">
+          <div class="pokemon" id="enemy">
             <div class="pokemonImg">
               <img src="" alt="" />
             </div>
-            <div class="healthBar"></div>
-            <div class="level">
-              <p>Lvl <span>1</span></p>
+            <div class="pokemonStats">
+
+              <div class="healthBar"></div>
+              <div class="level">
+                <p>Lvl <span>1</span></p>
+            </div>
             </div>
           </div>
         </div>
@@ -58,9 +65,9 @@
       <section id="pokeSelection">
         <h2>Pick Your Pokemon</h2>
         <div class="pokemon-container">
-          <div class="pokemon"><p>Pokemon 1</p></div>
-          <div class="pokemon"><p>Pokemon 2</p></div>
-          <div class="pokemon"><p>Pokemon 3</p></div>
+          <div class="pokemon1"><p>Pokemon 1</p></div>
+          <div class="pokemon2"><p>Pokemon 2</p></div>
+          <div class="pokemon3"><p>Pokemon 3</p></div>
         </div>
       </section>
     </main>

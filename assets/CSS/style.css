@@ -160,11 +160,22 @@ main {
   flex-direction: column;
   text-transform: uppercase;
 }
-.pokemon-container .pokemon .pokemonImg {
-  height: 200px;
-  width: 200px;
+.pokemon-container .pokemonImg {
+  height: 150px;
+  width: 150px;
+}
+.pokemon-container .pokemonName {
+  margin-top: -50px;
 }
 
+.pokemon-container .attack,
+.pokemon-container .defense,
+.pokemon-container .healthBar,
+.pokemon-container .abilities-container,
+.pokemon-container .ability1,
+.pokemon-container .ability2 {
+  display: none;
+}
 /* Footer */
 footer {
   background-color: var(--color2);

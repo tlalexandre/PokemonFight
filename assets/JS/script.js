@@ -90,25 +90,14 @@ function generatePokemon(data, position, identity) {
   let selectButton = document.createElement("button");
   selectButton.classList.add("selectButton");
   selectButton.textContent = "Select";
+  // let selectButtons = document.querySelectorAll(".selectButton");
 
   selectButton.addEventListener("click", () => {
     pokemonID = data.id;
     // Add the pokemon div element to the battle area
-    getPokemon(pokemonID, ".battleArea", identity);
-    var clicked = true;
-    // Make the select button disappear
-    selectButton.remove();
-
-    // Create a variable to access all the select buttons
-    let selectButtons = document.querySelectorAll(".selectButton");
-
-    selectButtons.forEach((selectButton) => {
-      selectButton.addEventListener("click", () => {
-        if (!clicked) {
-          selectButtons.style.display = "none";
-        }
-      });
-    });
+    let pokemonSelected = getPokemon(pokemonID, ".battleArea", identity);
+    if (!pokemonSelected) {
+    }
   });
 
   pokemon.appendChild(selectButton);

@@ -81,11 +81,12 @@ main {
 }
 /* Battle area */
 .battleArea {
-  height: 70%;
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+.myPokemonArea .pokemonImg {
+  height: 200px;
+  width: 200px;
 }
 /* POKEMON DISPLAY */
 .pokemon {
@@ -127,20 +128,6 @@ main {
   margin: 10px 0px 10px 100px;
 } */
 /* Abilities */
-.abilities-container {
-  height: 30%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  border-top: 5px double var(--color1);
-}
-.ability {
-  text-transform: uppercase;
-  background-color: antiquewhite;
-  width: 80%;
-  margin: 15px auto 15px;
-  border: 5px double var(--color1);
-}
 
 /* Selection */
 #pokeSelection {
@@ -168,14 +155,15 @@ main {
   margin-top: -50px;
 }
 
-.pokemon-container .attack,
-.pokemon-container .defense,
+.pokemon-container .attackBar,
+.pokemon-container .defenseBar,
 .pokemon-container .healthBar,
 .pokemon-container .abilities-container,
 .pokemon-container .ability1,
 .pokemon-container .ability2 {
   display: none;
 }
+
 /* Footer */
 footer {
   background-color: var(--color2);

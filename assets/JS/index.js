@@ -36,7 +36,11 @@ function generatePokemon(data, position, identity, displayBackSprite) {
 
   createAbilities(data.abilities, abilityContainer);
 
-  let healthBar = createStatBar("Health", data.stats[0].base_stat);
+  let healthBar = createStatBar(
+    "Health",
+    data.stats[0].base_stat,
+    data.stats[0].base_stat
+  );
   pokemon.appendChild(healthBar);
 
   let attackBar = createStatBar("Attack", data.stats[1].base_stat);
@@ -93,14 +97,42 @@ function createAbilitySpan(className, ability) {
   return abilitySpan;
 }
 
-function createStatBar(label, value) {
-  let statBar = document.createElement("span");
-  statBar.classList.add(label.toLowerCase() + "Bar");
-  statBar.textContent = value;
-  return statBar;
+function createStatBar(label, value, maxValue = 255) {
+  let statContainer = document.createElement("div");
+  statContainer.classList.add(`${label}Container`);
+
+  let statLabel = document.createElement("span");
+  statLabel.classList.add(`${label}Label`);
+  statLabel.textContent = label;
+  statContainer.appendChild(statLabel);
+
+  let statBar = document.createElement("div");
+  statBar.classList.add(`${label}Bar`);
+  let barWidth = (value / maxValue) * 255 + "%";
+  statBar.style.width = barWidth;
+  statBar.style.height = "20px";
+  statBar.style.backgroundColor = "green";
+  statContainer.appendChild(statBar);
+
+  let statValue = document.createElement("span");
+  statValue.classList.add(`${label}Value`);
+  statValue.textContent = value;
+  statContainer.appendChild(statValue);
+
+  let slashBar = document.createElement("span");
+  slashBar.classList.add(`${label}SlashBar`);
+  slashBar.textContent = "/";
+  statContainer.appendChild(slashBar);
+
+  let statMaxValue = document.createElement("span");
+  statMaxValue.classList.add(`${label}MaxValue`);
+  statMaxValue.textContent = maxValue;
+  statContainer.appendChild(statMaxValue);
+
+  return statContainer;
 }
 
-function createSelectButton(data, pokemonImg, identity, displayBackSprite) {
+function createSelectButton(data, pokemonImg, identity) {
   let selectButton = document.createElement("button");
   selectButton.classList.add("selectButton");
   selectButton.textContent = "Select";
@@ -118,6 +150,11 @@ function createSelectButton(data, pokemonImg, identity, displayBackSprite) {
 
   return selectButton;
 }
+
+function createHealthBar(value) {
+  healthBar = d;
+}
+
 function comparePokemon(pokemonSelected, enemyPokemon) {
   console.log(pokemonSelected);
 }

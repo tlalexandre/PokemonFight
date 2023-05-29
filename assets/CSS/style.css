@@ -83,50 +83,109 @@ main {
 .battleArea {
   display: flex;
   flex-direction: column;
-}
-.myPokemonArea .pokemonImg {
-  height: 200px;
-  width: 200px;
-}
-/* POKEMON DISPLAY */
-.pokemon {
-  height: 50%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-#enemy {
-  flex-direction: row-reverse;
-}
-
-.pokemonImg {
-  height: 300px;
-  /* background-color: blanchedalmond; */
-  width: 100%;
-  border-radius: 50%;
-}
-
-.pokemonStats {
-  width: 60%;
-  border-right: 5px solid var(--color1);
-  border-bottom: 5px solid var(--color1);
-}
-#enemy .pokemonStats {
-  border-left: 5px solid var(--color1);
-  border-right: 0px;
-}
-.name {
   text-transform: uppercase;
 }
-/* .healthBar {
-  height: 20px;
-  width: 70%;
-  background-color: var(--color2);
-  border: 1px solid var(--color1);
-  border-radius: 10px;
-  margin: 10px 0px 10px 100px;
-} */
+
+.myPokemonArea .pokemon {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "pi pi pn pn pn "
+    "pi pi hB hB hB"
+    "pi pi hmv hv hv"
+    "aC aC aC aC aC";
+}
+.myPokemonArea .pokemonName {
+  grid-area: pn;
+}
+.myPokemonArea .pokemonImg {
+  grid-area: pi;
+}
+.myPokemonArea .abilityContainer {
+  grid-area: aC;
+}
+
+.myPokemonArea .pokemonImg {
+  height: 250px;
+  width: 250px;
+}
+.myPokemonArea .HealthContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-area: hB;
+  grid-template-areas:
+    "hb hb hb"
+    "hv sb hmv";
+}
+
+.myPokemonArea .HealthSlashBar {
+  grid-area: sb;
+}
+.myPokemonArea .HealthValue {
+  grid-area: hv;
+}
+.myPokemonArea .HealthMaxValue {
+  grid-area: hmv;
+}
+.myPokemonArea .HealthLabel,
+.myPokemonArea .AttackContainer,
+.myPokemonArea .DefenseContainer,
+.myPokemonArea .selectButton {
+  display: none;
+}
+
+.enemyArea .pokemon {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "pi pi pn pn pn "
+    "pi pi hB hB hB"
+    "pi pi hmv hv hv"
+    "aC aC aC aC aC";
+}
+.enemyArea .pokemonName {
+  grid-area: pn;
+}
+.enemyArea .pokemonImg {
+  grid-area: pi;
+}
+.enemyArea .abilityContainer {
+  grid-area: aC;
+}
+
+.enemyArea .pokemonImg {
+  height: 250px;
+  width: 250px;
+}
+.enemyArea .HealthContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-area: hB;
+  grid-template-areas:
+    "hb hb hb"
+    "hv sb hmv";
+}
+
+.enemyArea .HealthSlashBar {
+  grid-area: sb;
+}
+.enemyArea .HealthValue {
+  grid-area: hv;
+}
+.enemyArea .HealthMaxValue {
+  grid-area: hmv;
+}
+.enemyArea .HealthLabel,
+.enemyArea .AttackContainer,
+.enemyArea .DefenseContainer,
+.enemyArea .selectButton {
+  display: none;
+}
+
 /* Abilities */
 
 /* Selection */
@@ -146,6 +205,7 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  justify-content: space-around;
 }
 .pokemon-container .pokemonImg {
   height: 150px;
@@ -155,9 +215,9 @@ main {
   margin-top: -50px;
 }
 
-.pokemon-container .attackBar,
-.pokemon-container .defenseBar,
-.pokemon-container .healthBar,
+.pokemon-container .AttackContainer,
+.pokemon-container .DefenseContainer,
+.pokemon-container .HealthContainer,
 .pokemon-container .abilities-container,
 .pokemon-container .ability1,
 .pokemon-container .ability2 {

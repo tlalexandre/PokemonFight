@@ -11,7 +11,7 @@ async function getPokemon(pokemonID, position, identity, displayBackSprite) {
     })
     .then((data) => {
       generatePokemon(data, position, identity, displayBackSprite);
-      console.log(data, position);
+      // console.log(data, position);
     })
     .catch((error) => {
       console.error("Error: " + error);
@@ -34,10 +34,10 @@ function generatePokemon(data, position, identity, displayBackSprite) {
   let pokemonName = createPokemonName(data.name);
   statBox.appendChild(pokemonName);
 
-  let abilityContainer = createAbilityContainer();
-  pokemon.appendChild(abilityContainer);
+  let moveContainer = createMovesContainer();
+  pokemon.appendChild(moveContainer);
 
-  createAbilities(data.abilities, abilityContainer);
+  createMoves(data.moves, moveContainer);
 
   let healthBar = createStatBar(
     "health",
@@ -82,28 +82,28 @@ function createPokemonName(name) {
   return pokemonName;
 }
 
-function createAbilityContainer() {
-  let abilityContainer = document.createElement("div");
-  abilityContainer.classList.add("abilityContainer");
-  return abilityContainer;
+function createMovesContainer() {
+  let movesContainer = document.createElement("div");
+  movesContainer.classList.add("moveContainer");
+  return movesContainer;
 }
 
-function createAbilities(abilities, abilityContainer) {
-  let ability1 = abilities[0].ability.name;
-  let ability2 = abilities[1].ability.name;
+function createMoves(moves, movesContainer) {
+  let move1 = moves[0].move.name;
+  let move2 = moves[1].move.name;
 
-  let pokemonFirstAbility = createAbilitySpan("ability1", ability1);
-  abilityContainer.appendChild(pokemonFirstAbility);
+  let pokemonFirstMove = createMoveSpan("move1", move1);
+  movesContainer.appendChild(pokemonFirstMove);
 
-  let pokemonSecondAbility = createAbilitySpan("ability2", ability2);
-  abilityContainer.appendChild(pokemonSecondAbility);
+  let pokemonSecondMove = createMoveSpan("move2", move2);
+  movesContainer.appendChild(pokemonSecondMove);
 }
 
-function createAbilitySpan(className, ability) {
-  let abilitySpan = document.createElement("span");
-  abilitySpan.classList.add(className);
-  abilitySpan.textContent = ability;
-  return abilitySpan;
+function createMoveSpan(className, move) {
+  let moveSpan = document.createElement("span");
+  moveSpan.classList.add(className);
+  moveSpan.textContent = move;
+  return moveSpan;
 }
 
 function createStatBar(label, value, maxValue = 255) {
@@ -155,6 +155,7 @@ function createSelectButton(data, pokemonImg, identity) {
     // pokemonImg.src = data.sprites.back_default;
     console.log(pokemonImg.src);
     let pokemonSelected = getPokemon(data.id, ".myPokemonArea", identity, true);
+    return pokemonSelected;
   });
 
   return selectButton;
@@ -162,10 +163,6 @@ function createSelectButton(data, pokemonImg, identity) {
 
 function createHealthBar(value) {
   healthBar = d;
-}
-
-function comparePokemon(pokemonSelected, enemyPokemon) {
-  console.log(pokemonSelected);
 }
 
 let randomPokemon = Math.floor(Math.random() * 151) + 1;
@@ -178,3 +175,11 @@ let enemyPokemon = getPokemon(
   ".enemyArea",
   "I'm a random pokemon"
 );
+console.log(enemyPokemon);
+function comparePokemon(pokemonSelected, enemyPokemon) {
+  console.log(pokemonSelected, enemyPokemon);
+  let myHealth = enemyPokemon.abilities;
+  console.log(myHealth);
+}
+
+comparePokemon(pokemonSelected, enemyPokemon);

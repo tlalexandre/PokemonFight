@@ -106,6 +106,7 @@ main {
 .myPokemonArea .statBox {
   position: absolute;
   right: 40px;
+  bottom: 250px;
   border: 5px solid black;
   border-radius: 30px 10px 30px 10px;
   padding: 10px;
@@ -124,7 +125,7 @@ main {
   top: -100px;
   left: -20px;
 }
-.myPokemonArea .abilityContainer {
+.myPokemonArea .moveContainer {
   grid-area: aC;
   border: 10px double black;
   z-index: 1;
@@ -134,21 +135,21 @@ main {
   background-color: var(--color4);
 }
 
-.myPokemonArea .ability1 {
+.myPokemonArea .move1 {
   border: 1px solid black;
   display: block;
   width: 50%;
   height: 150px;
   padding: 50px 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
-.myPokemonArea .ability2 {
+.myPokemonArea .move2 {
   border: 1px solid black;
   display: block;
   width: 50%;
   height: 150px;
   padding: 50px 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .myPokemonArea .healthContainer {
@@ -249,7 +250,7 @@ main {
 .enemyArea .healthLabel,
 .enemyArea .AttackContainer,
 .enemyArea .DefenseContainer,
-.enemyArea .abilityContainer,
+.enemyArea .moveContainer,
 .enemyArea .selectButton {
   display: none;
 }
@@ -286,9 +287,7 @@ main {
 .pokemon-container .AttackContainer,
 .pokemon-container .DefenseContainer,
 .pokemon-container .healthContainer,
-.pokemon-container .abilities-container,
-.pokemon-container .ability1,
-.pokemon-container .ability2 {
+.pokemon-container .moveContainer {
   display: none;
 }
 

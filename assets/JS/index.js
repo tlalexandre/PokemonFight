@@ -23,13 +23,16 @@ function generatePokemon(data, position, identity, displayBackSprite) {
   let targetElement = document.querySelector(position);
   targetElement.appendChild(pokemon);
 
+  let statBox = createPokemonStatBox();
+  pokemon.appendChild(statBox);
+
   let pokemonImg = createPokemonImage(
     displayBackSprite ? data.sprites.back_default : data.sprites.front_default
   );
   pokemon.appendChild(pokemonImg);
 
   let pokemonName = createPokemonName(data.name);
-  pokemon.appendChild(pokemonName);
+  statBox.appendChild(pokemonName);
 
   let abilityContainer = createAbilityContainer();
   pokemon.appendChild(abilityContainer);
@@ -37,11 +40,11 @@ function generatePokemon(data, position, identity, displayBackSprite) {
   createAbilities(data.abilities, abilityContainer);
 
   let healthBar = createStatBar(
-    "Health",
+    "health",
     data.stats[0].base_stat,
     data.stats[0].base_stat
   );
-  pokemon.appendChild(healthBar);
+  statBox.appendChild(healthBar);
 
   let attackBar = createStatBar("Attack", data.stats[1].base_stat);
   pokemon.appendChild(attackBar);
@@ -64,6 +67,12 @@ function createPokemonImage(src) {
   pokemonImg.classList.add("pokemonImg");
   pokemonImg.src = src;
   return pokemonImg;
+}
+
+function createPokemonStatBox(data) {
+  let statBox = document.createElement("div");
+  statBox.classList.add("statBox");
+  return statBox;
 }
 
 function createPokemonName(name) {
@@ -110,7 +119,7 @@ function createStatBar(label, value, maxValue = 255) {
   statBar.classList.add(`${label}Bar`);
   let barWidth = (value / maxValue) * 255 + "%";
   statBar.style.width = barWidth;
-  statBar.style.height = "20px";
+  statBar.style.height = "10px";
   statBar.style.backgroundColor = "green";
   statContainer.appendChild(statBar);
 
